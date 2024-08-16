@@ -1,2 +1,3 @@
-# Anecdotes - Redux 
-# 6.3 - 6.8
+# Anecdotes - Redux
+
+# 6.3 - 6.9
