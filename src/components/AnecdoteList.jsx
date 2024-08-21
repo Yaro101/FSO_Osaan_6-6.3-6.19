@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useSelector, useDispatch } from "react-redux";
 import { vote } from "../features/anecdote/anecdoteSlice";
+import { setNotificationWithTimout } from "../features/notification/notificationSlice";
 
 // Yhden Anecdote komponentti
 const Anecdote = ({ anecdote, onVote }) => {
@@ -22,7 +23,11 @@ const AnecdoteList = () => {
   const dispatch = useDispatch();
 
   const handleVote = (id) => {
+    // Selecting the anecdote
+    const anecdote = anecdotes.find((a) => a.id === id);
     dispatch(vote(id));
+    // Dispatching the notification for the selected anecdote
+    dispatch(setNotificationWithTimout(`You voted for ${anecdote.content}`));
   };
 
   const filteredAnecdotes = anecdotes.filter((anecdote) =>
