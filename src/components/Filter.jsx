@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setFilter } from "../actions/filterActions";
+import { setFilter } from "../features/filter/filterSlice";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const Filter = () => {
   };
 
   const style = {
-    marginBottom: 10,
+    marginBottom: 20,
   };
 
   return (
