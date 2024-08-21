@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useSelector, useDispatch } from "react-redux";
-import { voteAnecdote } from "../actions/anecdoteActions";
+import { useSelector, useDispatch } from 'react-redux';
+import vote from '../features/anecdote/anecdoteSlice';
 
 // Yhden Anecdote komponentti
 const Anecdote = ({ anecdote, onVote }) => {
@@ -17,12 +17,12 @@ const Anecdote = ({ anecdote, onVote }) => {
 
 // AnecdoteList-komponentti
 const AnecdoteList = () => {
-  const anecdotes = useSelector((state) => state.anecdotes);
-  const filter = useSelector((state) => state.filter);
+  const anecdotes = useSelector(state => state.anecdotes);
+  const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const handleVote = (id) => {
-    dispatch(voteAnecdote(id));
+    dispatch(vote(id));
   };
 
   const filteredAnecdotes = anecdotes.filter((anecdote) =>
