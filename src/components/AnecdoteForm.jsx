@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { create } from "../features/anecdote/anecdoteSlice";
+import { setNotificationWithTimout } from "../features/notification/notificationSlice";
 
 const AnecdoteForm = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const AnecdoteForm = () => {
     const content = event.target.anecdote.value.trim();
     if (content !== "") {
       dispatch(create(content));
+      dispatch(setNotificationWithTimout({ content })); // Dispatching the notification
       event.target.anecdote.value = "";
     }
   };
