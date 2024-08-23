@@ -27,7 +27,7 @@ const AnecdoteList = () => {
     // const anecdote = anecdotes.find((a) => a.id === id);
     dispatch(voteAnecdote(anecdote));
     // Dispatching the notification for the selected anecdote
-    dispatch(setNotificationWithTimout(`You voted for ${anecdote.content}`));
+    dispatch(setNotificationWithTimout(`You voted for ${anecdote.content}`, 3));
   };
 
   const filteredAnecdotes = anecdotes.filter((anecdote) =>

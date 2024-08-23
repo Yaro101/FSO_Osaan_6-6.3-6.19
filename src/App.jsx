@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { initializeAnecdote } from "./features/anecdote/anecdoteSlice";
-// import anecdoteServices from "./services/anecdotes";
-// import { setAnecdote } from "./features/anecdote/anecdoteSlice";
 import { useDispatch } from "react-redux";
 import AnecdoteList from "./components/AnecdoteList";
 import AnecdoteForm from "./components/AnecdoteForm";

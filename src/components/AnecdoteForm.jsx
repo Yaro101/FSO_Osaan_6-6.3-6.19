@@ -10,7 +10,7 @@ const AnecdoteForm = () => {
     const content = event.target.anecdote.value.trim();
     if (content !== "") {
       dispatch(createAnecdote(content));
-      dispatch(setNotificationWithTimout(`New anecdote added: ${content}`)); // Dispatching the notification
+      dispatch(setNotificationWithTimout(`New anecdote added: ${content}`, 5)); // Dispatching the notification
       event.target.anecdote.value = "";
     }
   };

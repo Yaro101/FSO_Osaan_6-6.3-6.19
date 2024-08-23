@@ -11,13 +11,13 @@ const notificationSlice = createSlice({
 })
 
 // Helper function for setting message, timout, dispatch and actions
-export const setNotificationWithTimout = (message, timout = 5000) => {
+export const setNotificationWithTimout = (message, timoutInSeconds = 5) => {
     return (dispatch) => {
         dispatch(setNotification(message))
 
         setTimeout(() => {
             dispatch(clearNotification())
-        }, timout)
+        }, timoutInSeconds * 1000)
     }
 }
 
