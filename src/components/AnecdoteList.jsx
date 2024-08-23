@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useSelector, useDispatch } from "react-redux";
-import { vote } from "../features/anecdote/anecdoteSlice";
+import { voteAnecdote } from "../features/anecdote/anecdoteSlice";
 import { setNotificationWithTimout } from "../features/notification/notificationSlice";
 
 // Yhden Anecdote komponentti
@@ -10,7 +10,7 @@ const Anecdote = ({ anecdote, onVote }) => {
       <div>{anecdote.content}</div>
       <div>
         has {anecdote.votes}
-        <button onClick={() => onVote(anecdote.id)}>vote</button>
+        <button onClick={() => onVote(anecdote)}>vote</button>
       </div>
     </div>
   );
@@ -22,10 +22,10 @@ const AnecdoteList = () => {
   const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
-  const handleVote = (id) => {
+  const handleVote = (anecdote) => {
     // Selecting the anecdote
-    const anecdote = anecdotes.find((a) => a.id === id);
-    dispatch(vote(id));
+    // const anecdote = anecdotes.find((a) => a.id === id);
+    dispatch(voteAnecdote(anecdote));
     // Dispatching the notification for the selected anecdote
     dispatch(setNotificationWithTimout(`You voted for ${anecdote.content}`));
   };
